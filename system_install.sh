@@ -6,7 +6,7 @@ sudo aptitude install git -y
 
 mkdir -p ~/.local
 cd ~/.local
-git clone https://github.com/gregmuellegger/dotfiles
+git clone https://github.com/mikethemagic/dotfiles
 cd dotfiles
 ./install.sh
 

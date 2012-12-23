@@ -1,0 +1,43 @@
+[user]
+    name = Michael Stangl
+    email = michael.stangl@gmail.com
+
+[color]
+    branch = auto
+    diff = auto
+    interactive = auto
+    status = auto
+    ui = auto
+
+[merge]
+    tool = vimdiff
+
+;[push]
+    ;default = matching
+
+[core]
+    editor = vim
+    pager = less -R
+
+[githup]
+    user = mikethemagic
+
+[alias]
+    diverges = !bash -c 'diff -u <(git rev-list --first-parent "${1}") <(git rev-list --first-parent "${2:-HEAD}") | sed -ne \"s/^ //p\" | head -1' -
+    aa = add --all
+    a = add --update
+    br = branch
+    ci = commit
+    co = checkout
+    dc = diff -M --cached
+    d = diff -M
+    df = diff
+    head = log -1
+    lg = log -p
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    lol = log --graph --decorate --pretty=oneline --abbrev-commit
+    ls = ls-files
+    pom = push origin master
+    prom = pull --rebase origin master
+    st = status
+    up = !sh -c 'git pull --rebase --prune && git log --pretty=format:\"%Cred%ae %Creset- %C(yellow)%s %Creset(%ar)\" HEAD@{1}..'
