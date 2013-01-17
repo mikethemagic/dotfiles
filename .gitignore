@@ -3,3 +3,6 @@
 *.egg
 *.egg-info
 .svn
+.DS_Store
+*._*
+.vim/
