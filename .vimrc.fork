@@ -1,0 +1,80 @@
+let NERDTreeQuitOnOpen = 0
+set nospell
+
+if has('gui_running')
+    set background=light
+    if has("gui_gtk2")
+        set guifont=Andale\ Mono\ Regular\ 11,Menlo\ Regular\ 10,Consolas\ Regular\ 11,Courier\ New\ Regular\ 13
+    else
+        set guifont=Andale\ Mono\ Regular:h14,Menlo\ Regular:h13,Consolas\ Regular:h14,Courier\ New\ Regular:h16
+    endif
+    if has('gui_macvim')
+        set transparency=2          " Make the window slightly transparent
+    endif
+else
+    set background=dark
+endif
+
+" ShowMarks {
+    let showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    " Don't leave on by default, use :ShowMarksOn to enable
+    let g:showmarks_enable = 0
+    " For marks a-z
+    highlight ShowMarksHLl gui=bold guibg=LightBlue guifg=Blue
+    " For marks A-Z
+    highlight ShowMarksHLu gui=bold guibg=LightRed guifg=DarkRed
+    " For all other marks
+    highlight ShowMarksHLo gui=bold guibg=LightYellow guifg=DarkYellow
+    " For multiple marks on the same line.
+    highlight ShowMarksHLm gui=bold guibg=LightGreen guifg=DarkGreen
+" }
+set autoread                    " automatically reads, helpful when VCS may have changed the file
+
+" NERDTree {
+    let g:nerdtree_tabs_open_on_gui_startup=1
+    let g:nerdtree_tabs_open_on_new_tab=1
+    let NERDTreeMouseMode=1
+" }
+"
+"
+" SnipMate {
+    " Setting the author var
+    " If forking, please overwrite in your .vimrc.local file
+    let g:snips_author = 'Michael Stangl <michael.stangl@gmail.com>'
+" }
+
+nmap <F2> :w
+nmap <S-F2> :make
+nmap <C-F2> :make %<
+nmap <F3> :perl Cfunc
+
+nmap <F4> :bdel
+nmap <S-F4> :close
+nmap <F5> :bp
+nmap <F6> :bn
+nmap <S-F5> :cp
+nmap <S-F6> :cn
+
+" tags
+nmap <F8> 
+nmap <C-F8> 
+nmap <S-F8> :tn
+nmap <F7> 
+
+" Split-Window Movement: <apple><cursorkeys>
+nmap <D-Up> <Up>
+nmap <D-Down> <Down>
+nmap <D-Right> <Right>
+nmap <D-Left> <Left>
+nmap <C-S-Up> <Up>_
+nmap <C-S-Down> <Down>_
+
+" folding
+nmap <M-C-Left> zf%
+nmap <M-C-Right> zO
+nmap <F12> zf%]]
+nmap <S-F12> zO]]
+
+set hlsearch
+set incsearch
+
