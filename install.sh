@@ -17,7 +17,7 @@ for i in $HOME/.vim $HOME/.vimrc $HOME/.gvimrc; do [ -e $i ] && [ ! -L $i ] && m
 
 # linking .vim configs
 echo "setting up symlinks"
-FILES=".gitignore .gitconfig .vim .vimrc .gvimrc .vimrc.bundles.fork .vimrc.bundles.local .vimrc.fork"
+FILES=".gitignore .gitconfig .vim .vimrc .gvimrc .vimrc.bundles .vimrc.bundles.local .vimrc.fork"
 for i in $FILES; do
     echo $i
     lnif $MYDIR/$i $HOME/$i
@@ -27,9 +27,9 @@ if [ ! -d $MYDIR/.vim/bundle ]; then
     mkdir -p $MYDIR/.vim/bundle
 fi
 
-if [ ! -e $HOME/.vim/bundle/vundle ]; then
+if [ ! -e $MYDIR/.vim/bundle/vundle ]; then
     echo "Installing Vundle"
-    git clone http://github.com/gmarik/vundle.git $HOME/.vim/bundle/vundle
+    git clone http://github.com/gmarik/vundle.git $MYDIR/.vim/bundle/vundle
 fi
 
 
