@@ -1,3 +1,6 @@
+" Modeline and Notes {
+" vim: set foldmarker={,} foldlevel=0 foldmethod=marker spell:
+" }
 let NERDTreeQuitOnOpen = 0
 set nospell
 
@@ -35,45 +38,47 @@ set autoread                    " automatically reads, helpful when VCS may have
     let g:nerdtree_tabs_open_on_new_tab=1
     let NERDTreeMouseMode=1
 " }
-"
-"
+
+
 " SnipMate {
     " Setting the author var
     " If forking, please overwrite in your .vimrc.local file
     let g:snips_author = 'Michael Stangl <michael.stangl@gmail.com>'
 " }
 
-nmap <F2> :w
-nmap <S-F2> :make
-nmap <C-F2> :make %<
-nmap <F3> :perl Cfunc
+" FX-keys {
+    nmap <F2> :w
+    nmap <S-F2> :make
+    nmap <C-F2> :make %<
+    nmap <F3> :perl Cfunc
 
-nmap <F4> :bdel
-nmap <S-F4> :close
-nmap <F5> :bp
-nmap <F6> :bn
-nmap <S-F5> :cp
-nmap <S-F6> :cn
+    nmap <F4> :bdel
+    nmap <S-F4> :close
+    nmap <F5> :bp
+    nmap <F6> :bn
+    nmap <S-F5> :cp
+    nmap <S-F6> :cn
 
-" tags
-nmap <F8> 
-nmap <C-F8> 
-nmap <S-F8> :tn
-nmap <F7> 
+    " tags
+    nmap <F8> 
+    nmap <C-F8> 
+    nmap <S-F8> :tn
+    nmap <F7> 
 
-" Split-Window Movement: <apple><cursorkeys>
-nmap <D-Up> <Up>
-nmap <D-Down> <Down>
-nmap <D-Right> <Right>
-nmap <D-Left> <Left>
-nmap <C-S-Up> <Up>_
-nmap <C-S-Down> <Down>_
+    " Split-Window Movement: <apple><cursorkeys>
+    nmap <D-Up> <Up>
+    nmap <D-Down> <Down>
+    nmap <D-Right> <Right>
+    nmap <D-Left> <Left>
+    nmap <C-S-Up> <Up>_
+    nmap <C-S-Down> <Down>_
 
-" folding
-nmap <M-C-Left> zf%
-nmap <M-C-Right> zO
-nmap <F12> zf%]]
-nmap <S-F12> zO]]
+    " folding
+    nmap <M-C-Left> zf%
+    nmap <M-C-Right> zO
+    nmap <F12> zf%]]
+    nmap <S-F12> zO]]
+" }
 
 set hlsearch
 set incsearch

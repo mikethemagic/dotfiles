@@ -23,13 +23,20 @@ for i in $FILES; do
     lnif $MYDIR/$i $HOME/$i
 done
 
-if [ ! -d $MYDIR/.vim/bundle ]; then
-    mkdir -p $MYDIR/.vim/bundle
-fi
+# linking scripts from bin to $HOME/bin
+FILES=`cd $MYDIR/bin; ls`
+for i in $FILES; do
+    echo $i
+    lnif $MYDIR/bin/$i $HOME/bin/$i
+done
 
+# installing vundle
+if [ ! -d $MYDIR/.vim/bundle ]; then
+   mkdir -p $MYDIR/.vim/bundle
+fi
 if [ ! -e $MYDIR/.vim/bundle/vundle ]; then
-    echo "Installing Vundle"
-    git clone http://github.com/gmarik/vundle.git $MYDIR/.vim/bundle/vundle
+   echo "Installing Vundle"
+   git clone http://github.com/gmarik/vundle.git $MYDIR/.vim/bundle/vundle
 fi
 
 

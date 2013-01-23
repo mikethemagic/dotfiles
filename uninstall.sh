@@ -15,5 +15,12 @@ dellink ~/.vimrc.local
 dellink ~/.vimrc.bundles.fork
 dellink ~/.vim
 
+# linking scripts from bin to $HOME/bin
+FILES=`cd $MYDIR/bin; ls`
+for i in $FILES; do
+    echo removing $i
+    dellink $MYDIR/bin/$i $HOME/bin/$i
+done
+
 rm -rf $MYDIR/.vim
 
