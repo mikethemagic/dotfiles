@@ -7,18 +7,16 @@ function dellink() {
     fi
 }
 
-dellink ~/.vimrc
-dellink ~/.gvimrc
-dellink ~/.vimrc.bundles
-dellink ~/.vimrc.fork
-dellink ~/.vimrc.local
-dellink ~/.vimrc.bundles.fork
-dellink ~/.vim
+FILES=`ls .vimrc*`
+for i in $FILES; do
+    echo removing $HOME/$i
+    dellink $HOME/$i
+done
 
 # linking scripts from bin to $HOME/bin
 FILES=`cd $MYDIR/bin; ls`
 for i in $FILES; do
-    echo removing $i
+    echo removing $HOME/bin/$i
     dellink $MYDIR/bin/$i $HOME/bin/$i
 done
 
