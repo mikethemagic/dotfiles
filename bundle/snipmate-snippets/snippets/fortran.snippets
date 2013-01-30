@@ -1,0 +1,259 @@
+snippet for
+abbr    kfor
+options + indent
+      DO COUNTR = ${1},${2}
+		
+      ENDDO
+snippet elif
+abbr    kelif
+options + indent
+      IF ( ${1} .EQ. ${2} ) THEN
+      ELSE IF ( ${3} .EQ. ${4} ) THEN
+      ELSE 
+      ENDIF
+snippet if
+abbr    kif
+options + indent
+      IF ( ${1} .EQ. ${2} ) THEN
+         
+      ELSE
+         
+      ENDIF
+snippet fh
+abbr    kfh
+    C     Neutrale FORTRAN 77 Version mit FORTRAN 90/95 Erweiterungen
+    C
+    C     ------------------------------------------------------------------
+		  SUBROUTINE ${1}( IERR )
+    C     ------------------------------------------------------------------
+    C     ${2:KURZBESCHREIBUNG DER FUNKTION}
+    C
+    C     ${3:AUSFUEHRLICHE DOKUMENTATION ZUR FUNKTION, ALGORITHMUS} 
+    C
+    C     ------------------------------------------------------------------
+    C     Erstellung / letzte Aenderung:
+    C     -----------
+    C     Version: $Revision:$
+    C     Autor:   $Author:  $
+    C     Datum:   $Date:    $
+    C
+    C     ------------------------------------------------------------------
+    C     Uebergabeparameterliste:
+    C     ------------------------
+    C     (Name)     (Typ)   (Dim)  (I/O)  (Beschreibung)
+    C
+    C     ------------------------------------------------------------------
+    C     Verwendete Commonbloecke im Programmteil:
+    C     -----------------------------------------
+    C     (Name)      (Beschreibung)
+    C
+    C     ------------------------------------------------------------------
+    C     Aufrufende Programmteile:
+    C     -------------------------
+    C     (Name)    (Beschreibung)
+    C
+    C     ------------------------------------------------------------------
+    C     Aufgerufene Programmroutinen:
+    C     -----------------------------
+    C     (Name)        (Typ)      (Beschreibung)
+    C
+    C     ------------------------------------------------------------------
+    C     Verwendete Variablen im Programmteil:
+    C     -------------------------------------
+    C     (Name)    (Typ) (Dim)      (Art)   (Beschreibung)
+    C
+    C     ------------------------------------------------------------------
+    C     Kategorie dieser Funktion:
+    C     --------------------------
+    C     @MATH::INTEGRAL::ETC@
+    C     ------------------------------------------------------------------
+    C     Variablenvereinbarung
+    C     ------------------------------------------------------------------
+    C
+		  IMPLICIT  NONE
+		  INTEGER   IERR
+    C
+    C     ------------------------------------------------------------------
+    C     Einlesen der COMMON-Bloecke ueber INCLUDE-Dateien
+    C     ------------------------------------------------------------------
+    C
+		  INCLUDE 'dbgon.cmm'
+		  IERR = 0
+		 
+		  CALL DBGF( DBG, '$1' )
+    C     ------------------------------------------------------------------
+    C     Eingangs - Argumente pruefen
+    C     ------------------------------------------------------------------
+		  IF ( ${3:PARAM1} .LE. 0 )    IERR = -2
+		  IF ( IERR .NE. 0 )  goto 9999
+
+    C     ------------------------------------------------------------------
+    C     Start aktiver Programmteil
+    C     ------------------------------------------------------------------
+
+         
+    C     ------------------------------------------------------------------
+    C     Ruecksprung zum Rufprogramm und Ende
+    C     ------------------------------------------------------------------
+	 9999  CONTINUE
+		  CALL DBGRET( DBG, IERR )
+		  RETURN
+		  END
+snippet kg
+abbr    kg
+options + indent
+    C     
+    C     
+    C     
+
+snippet kk
+abbr    kk
+options + indent
+    C     
+    C     ------------------------------------------------------------------
+    C     
+    C     ------------------------------------------------------------------
+    C     
+snippet tst
+abbr    tst
+    C     Neutrale FORTRAN 77 Version mit FORTRAN 90/95 Erweiterungen       
+    C
+    C     ------------------------------------------------------------------
+		  SUBROUTINE @ROUTINEN_NAME@( DBG, IERR )
+    C     ------------------------------------------------------------------
+    C     Testfunktion
+    C
+    C     ------------------------------------------------------------------
+    C     Erstellung / letzte Aenderung:
+    C     -----------
+    C     Version:       FZG Library
+    C     Autor: $Id:$
+    C     Datum:
+    C
+    C     ------------------------------------------------------------------
+    C     Uebergabeparameterliste:
+    C     ------------------------
+    C     (Name)     (Typ)   (Dim)  (I/O)  (Beschreibung)
+    C
+    C     IERR       INT       -      O    ErrorCode
+    C     ------------------------------------------------------------------
+    C     Verwendete Commonbloecke im Programmteil:
+    C     -----------------------------------------
+    C     (Name)    (Beschreibung)
+    C
+    C     ------------------------------------------------------------------
+    C     Aufrufende Programmteile:
+    C     -------------------------
+    C     (Name)    (Beschreibung)
+    C
+    C     ------------------------------------------------------------------
+    C     Aufgerufene Programmroutinen:
+    C     -----------------------------
+    C     (Name)    (Typ)      (Beschreibung)
+    C
+    C     ------------------------------------------------------------------
+    C     Verwendete Variablen im Programmteil:
+    C     -------------------------------------
+    C     (Name)    (Typ) (Dim) (Art)   (Beschreibung)
+    C
+    C     ------------------------------------------------------------------
+    C     Kategorie dieser Funktion:
+    C     --------------------------
+    C
+    C     ------------------------------------------------------------------
+    C     Variablenvereinbarung
+    C     ------------------------------------------------------------------
+    C
+		  IMPLICIT  NONE
+		  INTEGER   IERR
+		  INTEGER   DBG
+    C
+    C     ------------------------------------------------------------------
+    C     Einlesen der COMMON-Bloecke ueber INCLUDE-Dateien
+    C     ------------------------------------------------------------------
+    C
+    C     ------------------------------------------------------------------
+    C     Start aktiver Programmteil
+    C     ------------------------------------------------------------------
+    C
+          IERR = 0
+
+          CALL DBGK( DBG, "------------------<TEST>--------------------" );
+          CALL DBGK( DBG, "                                            " );
+          CALL DBGK( DBG, "------------------<TEST>--------------------" );
+
+          CALL DBGF( DBG, 'FNAME' )
+
+    C     <CODE_EXAMPLE>
+          CALL DBGK( DBG, "---TEST 1---" );
+          CALL DBGK( DBG, "-Vorgaben-" );
+
+          CALL DBGK( DBG, "-Ergebnis-" );
+    C     <\CODE_EXAMPLE>
+		 
+    C     ------------------------------------------------------------------
+    C     Ruecksprung zum Rufprogramm und Ende
+    C     ------------------------------------------------------------------
+    C
+          CALL DBGRET( DBG, IERR )
+          RETURN
+          END
+snippet while
+abbr    kwh
+    ***** WHILE
+          DO WHILE ( A .EQ. B )
+		    
+          ENDDO
+    ***** ENDWHILE
+snippet mh
+abbr    kmh
+    C     Neutrale FORTRAN 77 Version mit FORTRAN 90 Erweiterungen
+    C
+    C     ------------------------------------------------------------------
+    C 
+    C     ------------------------------------------------------------------
+    C     Erstellung:
+    C     -----------
+    C     Version: $Revision:$
+    C     Autor:   $Author:  $
+    C     Datum:   $Date:    $
+    C
+    C     Aenderung:
+    C     ----------
+    C     Version:
+    C     Datum:
+    C     Zweck/Grund:
+    C     ------------------------------------------------------------------
+    C     Verwendet in:
+    C     -------------
+    C 
+    C     ------------------------------------------------------------------
+    C     Deklarierte Variablen:
+    C     -------------------------------------
+    C     (Name)    (Typ)  (Dim)   (Beschreibung)
+    C
+    C 
+    C     ------------------------------------------------------------------
+    C
+
+snippet sw
+abbr    ksw
+          INTEGER SEL
+
+    C**** SELECT
+          GOTO ( 101, 102, 103 ), SEL
+
+    101   CONTINUE
+          
+          GOTO 199
+
+    102   CONTINUE
+          
+          GOTO 199
+
+    103   CONTINUE
+          
+          GOTO 199
+
+    199   CONTINUE
+    C**** ENDSELECT

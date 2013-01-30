@@ -47,3 +47,4 @@ system_shell=$SHELL
 export SHELL="/bin/sh"
 vim -u $MYDIR/.vimrc.bundles +BundleInstall! +BundleClean +qall
 export SHELL=$system_shell
+cp -R $MYDIR/bundle $MYDIR/.vim/
