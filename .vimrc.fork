@@ -5,7 +5,6 @@ let NERDTreeQuitOnOpen = 0
 set nospell
 
 if has('gui_running')
-    set background=light
     if has("gui_gtk2")
         set guifont=Andale\ Mono\ Regular\ 11,Menlo\ Regular\ 10,Consolas\ Regular\ 11,Courier\ New\ Regular\ 13
     else
@@ -14,6 +13,7 @@ if has('gui_running')
     if has('gui_macvim')
         set transparency=2          " Make the window slightly transparent
     endif
+    set background=light
 else
     set background=dark
 endif
@@ -39,18 +39,10 @@ set autoread                    " automatically reads, helpful when VCS may have
     let NERDTreeMouseMode=1
 " }
 
-
-" SnipMate {
-    " Setting the author var
-    " If forking, please overwrite in your .vimrc.local file
-    let g:snips_author = 'Michael Stangl <michael.stangl@gmail.com>'
-" }
-
 " FX-keys {
     nmap <F2> :w
     nmap <S-F2> :make
     nmap <C-F2> :make %<
-    nmap <F3> :perl Cfunc
 
     nmap <F4> :bdel
     nmap <S-F4> :close

@@ -5,4 +5,5 @@
 .svn
 .DS_Store
 *._*
-.vim/
+.vim/bundle
+.vim/sessions

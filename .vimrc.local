@@ -3,3 +3,50 @@
         " If forking, please overwrite in your .vimrc.local file
         let g:snips_author = 'Michael Stangl <michael.stangl@gmail.com>'
     " }
+    "
+let vimrc_dir="$HOME/.vim"
+" Filespezifische Makros und Templates {
+if !exists("autocommands_loaded")
+    let autocommands_loaded = 1
+
+    " file types
+    autocmd FileType javascript set ts=4 sw=4
+    autocmd FileType html set ts=2 sw=2
+    autocmd BufNewFile,BufRead *.css.dtml setfiletype css
+    autocmd BufNewFile,BufRead *.zcml setfiletype xml
+    autocmd FileType fortran set noexpandtab
+
+    " python
+    autocmd FileType python set ts=4 sw=4 expandtab nocin nosi ai
+    autocmd FileType python set makeprg=pyflakes\ %
+    autocmd FileType python set efm=%f:%l:%m
+    autocmd BufNewFile,BufRead *.cpy setfiletype python
+
+    " C mode
+    autocmd FileType c set fo=croq ts=8 sw=8 cin si ai
+    autocmd FileType c syn region cSpecial start="_DBG" end=");"
+
+    "macros
+    autocmd FileType tcl 	source  $VIMRC_DIR/macros/tclmakros.vim
+    autocmd FileType c 	source  $VIMRC_DIR/macros/cmakros.vim
+    autocmd FileType cpp 	source  $VIMRC_DIR/macros/cppmakros.vim
+    autocmd FileType dosbatch 	source  $VIMRC_DIR/macros/batmakros.vim
+    autocmd FileType perl 	source $VIMRC_DIR/macros/perlmakros.vim
+    autocmd FileType python 	source $VIMRC_DIR/macros/pythonmakros.vim
+    autocmd FileType fortran 	source $VIMRC_DIR/macros/fortranmakros.vim
+    autocmd FileType sh,bash	source $VIMRC_DIR/macros/shellmakros.vim
+    autocmd FileType matlab	source $VIMRC_DIR/macros/matlabmakros.vim
+    autocmd FileType latex 	source  $VIMRC_DIR/macros/texmakros.vim
+    autocmd FileType txt 		source  $VIMRC_DIR/macros/textmakros.vim
+    autocmd BufNewFile,BufRead *.dbg	source $VIMRC_DIR/macros/debugfold.vim
+
+    "spezielles syntax highlighting 
+    "autocmd FileType c source  $VIMRC_DIR/syntax/prosyntax.vim
+    "autocmd FileType fortran source  $VIMRC_DIR/syntax/fortransyntax.vim
+    "autocmd FileType matlab  source  $VIMRC_DIR/syntax/matlabsyntax.vim
+
+
+endif
+" }
+
+" vim: set foldmarker={,} foldlevel=0 foldmethod=marker spell:
