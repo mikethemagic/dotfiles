@@ -2,29 +2,29 @@ snippet for
 abbr    ,for
 options + indent
       DO COUNTR = ${1},${2}
-		
+
       ENDDO
 snippet elif
 abbr    ,elif
 options + indent
       IF ( ${1} .EQ. ${2} ) THEN
       ELSE IF ( ${3} .EQ. ${4} ) THEN
-      ELSE 
+      ELSE
       ENDIF
 snippet if
 abbr    ,if
 options + indent
       IF ( ${1} .EQ. ${2} ) THEN
-         
+
       ELSE
-         
+
       ENDIF
 snippet fh
 abbr    ,fh
     C     Neutrale FORTRAN 77 Version mit FORTRAN 90/95 Erweiterungen
     C
     C     ------------------------------------------------------------------
-		  SUBROUTINE ${1}( IERR )
+          SUBROUTINE ${1}( IERR )
     C     ------------------------------------------------------------------
     C     ${2:KURZBESCHREIBUNG DER FUNKTION}
     C
@@ -70,35 +70,35 @@ abbr    ,fh
     C     Variablenvereinbarung
     C     ------------------------------------------------------------------
     C
-		  IMPLICIT  NONE
-		  INTEGER   IERR
+          IMPLICIT  NONE
+          INTEGER   IERR
     C
     C     ------------------------------------------------------------------
     C     Einlesen der COMMON-Bloecke ueber INCLUDE-Dateien
     C     ------------------------------------------------------------------
     C
-		  INCLUDE 'dbgon.cmm'
-		  IERR = 0
-		 
-		  CALL DBGF( DBG, '$1' )
+          INCLUDE 'dbgon.cmm'
+          IERR = 0
+
+          CALL DBGF( DBG, '$1' )
     C     ------------------------------------------------------------------
     C     Eingangs - Argumente pruefen
     C     ------------------------------------------------------------------
-		  IF ( ${3:PARAM1} .LE. 0 )    IERR = -2
-		  IF ( IERR .NE. 0 )  goto 9999
+          IF ( ${3:PARAM1} .LE. 0 )    IERR = -2
+          IF ( IERR .NE. 0 )  goto 9999
 
     C     ------------------------------------------------------------------
     C     Start aktiver Programmteil
     C     ------------------------------------------------------------------
 
-         
+
     C     ------------------------------------------------------------------
     C     Ruecksprung zum Rufprogramm und Ende
     C     ------------------------------------------------------------------
-	 9999  CONTINUE
-		  CALL DBGRET( DBG, IERR )
-		  RETURN
-		  END
+          9999  CONTINUE
+          CALL DBGRET( DBG, IERR )
+          RETURN
+          END SUBROUTINE $1
 snippet kg
 abbr    ,g
 options + indent
@@ -109,14 +109,14 @@ options + indent
 snippet kk
 abbr    ,k
 options + indent
-    C     
+    C
     C     ------------------------------------------------------------------
-    C     
+    C
     C     ------------------------------------------------------------------
-    C     
+    C
 snippet tst
 abbr    tst
-    C     Neutrale FORTRAN 77 Version mit FORTRAN 90/95 Erweiterungen       
+    C     Neutrale FORTRAN 77 Version mit FORTRAN 90/95 Erweiterungen
     C
     C     ------------------------------------------------------------------
 		  SUBROUTINE @ROUTINEN_NAME@( DBG, IERR )
