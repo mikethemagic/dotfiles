@@ -6,6 +6,6 @@
     " let g:override_spf13_bundles = 1
 
     Bundle 'OrangeT/vim-csharp.git'
-
-
-
+    Bundle 'maxmeyer/vim-taskjuggler'
+    Bundle 'honza/vim-snippets'
+    Bundle 'xolox/vim-easytags'

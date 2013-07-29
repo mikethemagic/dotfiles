@@ -5,6 +5,7 @@
     " }
     "
 let vimrc_dir="$HOME/.vim"
+let VIMRC_DIR="$HOME/.vim"
 " Filespezifische Makros und Templates {
 if !exists("autocommands_loaded")
     let autocommands_loaded = 1
@@ -41,6 +42,7 @@ if !exists("autocommands_loaded")
     autocmd BufNewFile,BufRead *.dbg	source $VIMRC_DIR/macros/debugfold.vim
 
     "spezielles syntax highlighting 
+     autocmd FileType tjp 	source  $VIMRC_DIR/syntax/tjp.vim
     "autocmd FileType c source  $VIMRC_DIR/syntax/prosyntax.vim
     "autocmd FileType fortran source  $VIMRC_DIR/syntax/fortransyntax.vim
     "autocmd FileType matlab  source  $VIMRC_DIR/syntax/matlabsyntax.vim

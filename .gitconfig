@@ -10,7 +10,7 @@
     ui = auto
 
 [merge]
-    tool = vimdiff
+    tool = meld
 
 ;[push]
     ;default = matching
@@ -41,3 +41,4 @@
     prom = pull --rebase origin master
     st = status
     up = !sh -c 'git pull --rebase --prune && git log --pretty=format:\"%Cred%ae %Creset- %C(yellow)%s %Creset(%ar)\" HEAD@{1}..'
+	dfw = diff --ignore-space-change
