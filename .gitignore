@@ -1,9 +1,11 @@
-*.pyc
-*.pyo
+*._*
+*._*
+.DS_Store
 *.egg
 *.egg-info
+*.pyc
+*.pyo
 .svn
-.DS_Store
-*._*
 .vim/bundle
 .vim/sessions
+*.vim/sessions/
