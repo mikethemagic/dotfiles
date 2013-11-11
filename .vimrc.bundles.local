@@ -8,4 +8,5 @@
     Bundle 'OrangeT/vim-csharp.git'
     Bundle 'maxmeyer/vim-taskjuggler'
     Bundle 'honza/vim-snippets'
+    Bundle 'xolox/vim-misc'
     Bundle 'xolox/vim-easytags'
