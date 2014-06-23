@@ -1,7 +1,0 @@
-REM PURPOSE
-REM
-REM $Id:$
-REM
-REM $Log:$
-REM
-

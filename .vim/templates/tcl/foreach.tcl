@@ -1,2 +1,0 @@
-foreach x $y {
-}
