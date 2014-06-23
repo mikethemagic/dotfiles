@@ -17,8 +17,7 @@ for i in $HOME/.vim $HOME/.vimrc $HOME/.gvimrc; do [ -e $i ] && [ ! -L $i ] && m
 
 # linking .vim configs
 echo "setting up symlinks"
-FILES=".gitignore .gitconfig .vimrc .vimrc.local \
-    .gvimrc .vimrc.bundles .vimrc.bundles.local .vimrc.fork"
+FILES=".gitignore .gitconfig .vimrc "
 for i in $FILES; do
     echo $i
     lnif $MYDIR/$i $HOME/$i
