@@ -1,0 +1,2 @@
+foreach $ITEM ( @ARRAY ) {
+}
