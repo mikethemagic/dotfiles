@@ -17,7 +17,7 @@ for i in $HOME/.vim $HOME/.vimrc $HOME/.gvimrc; do [ -e $i ] && [ ! -L $i ] && m
 
 # linking .vim configs
 echo "setting up symlinks"
-FILES=".gitignore .gitconfig .vimrc "
+FILES=".gitignore .gitconfig .vim .vimrc "
 for i in $FILES; do
     echo $i
     lnif $MYDIR/$i $HOME/$i
@@ -42,8 +42,5 @@ fi
 
 
 echo "update/install plugins using Vundle"
-system_shell=$SHELL
 export SHELL="/bin/sh"
-vim -u $MYDIR/.vimrc.bundles +BundleInstall! +BundleClean +qall
-export SHELL=$system_shell
-cp -R $MYDIR/bundle $MYDIR/.vim/
+vim -u $HOME/.vimrc +BundleInstall! +BundleClean +qall
