@@ -1,5 +1,5 @@
-C     Neutrale FORTRAN 77 Version mit FORTRAN 90/95 Erweiterungen       
-C                                                                       
+C     Neutrale FORTRAN 77 Version mit FORTRAN 90/95 Erweiterungen
+C
 C     ------------------------------------------------------------------
       SUBROUTINE ROUTINEN_NAME( IERR )
 C     ------------------------------------------------------------------
@@ -8,20 +8,20 @@ C
 C     AUSFUEHRLICHE DOKUMENTATION ZUR FUNKTION, ALGORITHMUS
 C     
 C     ------------------------------------------------------------------
-C     Erstellung / letzte Aenderung:                                    
-C     -----------                                                       
+C     Erstellung / letzte Aenderung:
+C     -----------
 C     Version: $Revision:$
-C     Autor:   $Author:  $      
+C     Autor:   $Author:  $
 C     Datum:   $Date:    $
-C                                                                       
+C
 C     ------------------------------------------------------------------
 C     Uebergabeparameterliste:
 C     ------------------------
 C     (Name)     (Typ)   (Dim)  (I/O)  (Beschreibung)
 C
 C     ------------------------------------------------------------------
-C     Verwendete Commonbloecke im Programmteil:                         
-C     -----------------------------------------                         
+C     Verwendete Commonbloecke im Programmteil:
+C     -----------------------------------------
 C     (Name)      (Beschreibung)
 C
 C     ------------------------------------------------------------------
@@ -47,7 +47,6 @@ C     ------------------------------------------------------------------
 C     Variablenvereinbarung
 C     ------------------------------------------------------------------
 C                                                                       
-C     USE XEMOD
       IMPLICIT  NONE
 
 C     INTEGER, INTENT(IN)::TRID
@@ -70,15 +69,15 @@ C     ------------------------------------------------------------------
       IF ( IERR .NE. 0 )  goto 9999
 
 C     ------------------------------------------------------------------
-C     Start aktiver Programmteil                                        
+C     Start aktiver Programmteil
 C     ------------------------------------------------------------------
 
-      
+
 C     ------------------------------------------------------------------
 C     Ruecksprung zum Rufprogramm und Ende
 C     ------------------------------------------------------------------
  9999 CONTINUE
-      CALL DBGRET( DBG, IERR ) 
+      CALL DBGRET( DBG, IERR )
       RETURN
       END SUBROUTINE ROUTINEN_NAME
 C     vim: tw=80 foldmarker=<<<,>>>:
