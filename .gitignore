@@ -9,3 +9,5 @@
 .vim/bundle
 .vim/sessions
 *.vim/sessions/
+*.o
+tags
