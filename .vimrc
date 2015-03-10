@@ -24,10 +24,6 @@ filetype off                  " required
         " The sparkup vim script is in a subdirectory of this repo called vim.
         " Pass the path to set the runtimepath properly.
         Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-        " scripts from http://vim-scripts.org/vim/scripts.html
-        Plugin 'L9'
-        " findet Muster die man häufig nutzt in Files und buffer
-        Plugin 'FuzzyFinder'
         " öffnet Files einfach
         Plugin 'wincent/Command-T'
         " Explorer für vim
@@ -101,34 +97,14 @@ filetype off                  " required
             Bundle 'python_match.vim'
             Bundle 'pythoncomplete'
         " }
-        " Beispiele für weitere Plugins {
-        " scripts not on GitHub
-        "Plugin 'git://git.wincent.com/command-t.git'
-        " git repos on your local machine (i.e. when working on your own plugin)
-        "Plugin 'file:///home/gmarik/path/to/plugin'
-        " }
-= 
-
-        " To ignore plugin indent changes, instead use:
-        "filetype plugin on
-        "
-        " Brief help
-        " :PluginList          - list configured plugins
-        " :PluginInstall(!)    - install (update) plugins
-        " :PluginSearch(!) foo - search (or refresh cache first) for foo
-        " :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
-        "
-        " see :h vundle for more details or wiki for FAQ
-        " NOTE: comments after Plugin commands are not allowed.
-        " Put your stuff after this line
 " }
 
 filetype plugin indent on     " required
 filetype plugin on            
 
     "
-let vimrc_dir="$HOME/.vim"
-let VIMRC_DIR="$HOME/.vim"
+let vimrc_dir="$HOME/_vim"
+let VIMRC_DIR="$HOME/_vim"
 " Filespezifische Makros und Templates {
 if !exists("autocommands_loaded")
     let autocommands_loaded = 1
