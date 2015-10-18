@@ -10,20 +10,20 @@ set textwidth=72
 " let fortran_do_enddo=1
 " if version >= 600
    " let fortran_fold=1
-   " let fortran_more_precise=1
+   " let fortran_more_precise=
 " endif 
 
-iab kfhead :r $VIMRC_DIR/templates/fortran/kfhead.for
-iab kfe :r $VIMRC_DIR/templates/fortran/kfe.for
-iab ktst :r $VIMRC_DIR/templates/fortran/ktest.for
-iab kmhead :r $VIMRC_DIR/templates/fortran/mhead.for
-iab kfor :r $VIMRC_DIR/templates/fortran/for.for
-iab kkk :r $VIMRC_DIR/templates/fortran/kommentar_gr.forj$i
-iab kkg :r $VIMRC_DIR/templates/fortran/kommentar_kl.forjj$i
-iab keif :r $VIMRC_DIR/templates/fortran/if_eif_else.for
-iab kif :r $VIMRC_DIR/templates/fortran/if.for0v5j=
-iab ksw :r $VIMRC_DIR/templates/fortran/switch.for
-iab kwh :r $VIMRC_DIR/templates/fortran/kwhile.for
+iab kfhead :r $VIMRC_DIR."/templates/fortran/kfhead.for"
+iab kfe :r $VIMRC_DIR."/templates/fortran/kfe.for"
+iab ktst :r $VIMRC_DIR."/templates/fortran/ktest.for"
+iab kmhead :r $VIMRC_DIR."/templates/fortran/mhead.for"
+iab kfor :r $VIMRC_DIR."/templates/fortran/for.for"
+iab kkk :r $VIMRC_DIR."/templates/fortran/kommentar_gr.for"j$i
+iab kkg :r $VIMRC_DIR."/templates/fortran/kommentar_kl.for"jj$i
+iab keif :r $VIMRC_DIR."/templates/fortran/if_eif_else.for"
+iab kif :r $VIMRC_DIR."/templates/fortran/if.for"0v5j=
+iab ksw :r $VIMRC_DIR."/templates/fortran/switch.for"
+iab kwh :r $VIMRC_DIR."/templates/fortran/kwhile.for"
 
 nmap <F11> 0r j
 nmap <F12> 0rCj

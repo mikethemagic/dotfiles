@@ -2,6 +2,9 @@
 " vim: set foldmarker={,} foldlevel=0 foldmethod=marker spell:
 " }
 
+let s:MSWIN = has("win16") || has("win32")   || has("win64")    || has("win95")
+let $VIMRC_DIR=$HOME."/vim"
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -102,9 +105,6 @@ filetype off                  " required
 filetype plugin indent on     " required
 filetype plugin on            
 
-    "
-let vimrc_dir="$HOME/_vim"
-let VIMRC_DIR="$HOME/_vim"
 " Filespezifische Makros und Templates {
 if !exists("autocommands_loaded")
     let autocommands_loaded = 1
@@ -128,24 +128,30 @@ if !exists("autocommands_loaded")
     autocmd FileType c syn region cSpecial start="_DBG" end=");"
 
     "macros
-    autocmd FileType tcl        source  $VIMRC_DIR/macros/tclmakros.vim
-    autocmd FileType c  source  $VIMRC_DIR/macros/cmakros.vim
-    autocmd FileType cpp        source  $VIMRC_DIR/macros/cppmakros.vim
-    autocmd FileType dosbatch   source  $VIMRC_DIR/macros/batmakros.vim
-    autocmd FileType perl       source $VIMRC_DIR/macros/perlmakros.vim
-    autocmd FileType python     source $VIMRC_DIR/macros/pythonmakros.vim
-    autocmd FileType fortran    source $VIMRC_DIR/macros/fortranmakros.vim
-    autocmd FileType sh,bash    source $VIMRC_DIR/macros/shellmakros.vim
-    autocmd FileType matlab     source $VIMRC_DIR/macros/matlabmakros.vim
-    autocmd FileType latex      source  $VIMRC_DIR/macros/texmakros.vim
-    autocmd FileType txt                source  $VIMRC_DIR/macros/textmakros.vim
-    autocmd BufNewFile,BufRead *.dbg    source $VIMRC_DIR/macros/debugfold.vim
+    "autocmd FileType tcl        source  $VIMRC_DIR."/macros/tclmakros.vim"
+    "autocmd FileType c          source  $VIMRC_DIR."/macros/cmakros.vim"
+    "autocmd FileType cpp        source  $VIMRC_DIR."/macros/cppmakros.vim"
+    "autocmd FileType dosbatch   source  $VIMRC_DIR."/macros/batmakros.vim"
+    "autocmd FileType perl       source $VIMRC_DIR."/macros/perlmakros.vim"
+    "autocmd FileType python     source $VIMRC_DIR."/macros/pythonmakros.vim"
+    "augroup filetype_fortran
+        "autocmd!
+        "autocmd BufRead,BufNewFile *.f,*.for,*.FOR,*.cmm,*.CMM	set tw=80 cin noic
+        "autocmd BufRead,BufNewFile *.f,*.for,*.FOR,*.cmm,*.CMM	iabbrev  kfh mein Fortran Test
+        "autocmd BufRead,BufNewFile *.f,*.for,*.FOR,*.cmm,*.CMM	source "/home/mistangl/.vim/macros/fortranmakros.vim"
+    "augroup END
+    "autocmd FileType fortran    source $VIMRC_DIR."/macros/fortranmakros.vim"
+    "autocmd FileType sh,bash    source $VIMRC_DIR."/macros/shellmakros.vim"
+    "autocmd FileType matlab     source $VIMRC_DIR."/macros/matlabmakros.vim"
+    "autocmd FileType latex      source  $VIMRC_DIR."/macros/texmakros.vim"
+    "autocmd FileType txt                source $VIMRC_DIR."/macros/textmakros.vim"
+    "autocmd BufNewFile,BufRead *.dbg    source $VIMRC_DIR."/macros/debugfold.vim"
 
     "spezielles syntax highlighting 
-     autocmd FileType tjp       source  $VIMRC_DIR/syntax/tjp.vim
-    "autocmd FileType c source  $VIMRC_DIR/syntax/prosyntax.vim
-    "autocmd FileType fortran source  $VIMRC_DIR/syntax/fortransyntax.vim
-    "autocmd FileType matlab  source  $VIMRC_DIR/syntax/matlabsyntax.vim
+     "autocmd FileType tjp       source  $VIMRC_DIR./syntax/tjp.vim"
+    "autocmd FileType c source  $VIMRC_DIR./syntax/prosyntax.vim"
+    "autocmd FileType fortran source  $VIMRC_DIR./syntax/fortransyntax.vim"
+    "autocmd FileType matlab  source  $VIMRC_DIR./syntax/matlabsyntax.vim"
 
 
 endif
@@ -185,11 +191,6 @@ endif
 " }
 set autoread                    " automatically reads, helpful when VCS may have changed the file
 
-" SnipMate {
-        " Setting the author var
-        " If forking, please overwrite in your .vimrc.local file
-        let g:snips_author = 'Michael Stangl <michael.stangl@gmail.com>'
-" }
 
 " FX-keys {
     nmap <F2> :w
@@ -222,6 +223,27 @@ set autoread                    " automatically reads, helpful when VCS may have
     nmap <M-C-Right> zO
     nmap <F12> zf%]]
     nmap <S-F12> zO]]
+" }
+" editing vimrc {
+    nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+    nnoremap <leader>sv :source $MYVIMRC<cr>
+" }
+" useful abbreviations {
+    iabbrev @@    michael.stangl@googlemail.com
+    iabbrev ccopy Copyright 2015 Michael Stangl, all rights reserved.
+" }
+" useful editing mappings {
+"   ein Wort in "" setzen
+    nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
+    nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
+"   Mappings für Movements: 
+"   Alle funktionsparameter löschen
+    onoremap p i(
+"   body der Funktion löschen
+"   onoremap b /return<cr>
+"
+"   grep nach dem Wort unter dem Cursor
+    nnoremap <leader>g :grep -R '<cWORD>' .<cr>
 " }
 
 set hlsearch

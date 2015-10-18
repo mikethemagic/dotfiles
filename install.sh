@@ -31,12 +31,12 @@ for i in $FILES; do
 done
 
 # installing vundle
-if [ ! -d $MYDIR/.vim/bundle ]; then
-   mkdir -p $MYDIR/.vim/bundle
+if [ ! -d $MYDIR/vim/bundle ]; then
+   mkdir -p $MYDIR/vim/bundle
 fi
 if [ ! -e $MYDIR/.vim/bundle/vundle ]; then
    echo "Installing Vundle"
-   git clone http://github.com/gmarik/vundle.git $MYDIR/.vim/bundle/vundle
+   git clone http://github.com/gmarik/vundle.git $MYDIR/vim/bundle/vundle
 fi
 
 
