@@ -3,7 +3,7 @@
 " }
 
 let s:MSWIN = has("win16") || has("win32")   || has("win64")    || has("win95")
-let $VIMRC_DIR=$HOME."/vim"
+let $VIMRC_DIR=$HOME."/.vim"
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -117,35 +117,25 @@ if !exists("autocommands_loaded")
     autocmd FileType fortran set noexpandtab
 
     " python
-    autocmd FileType python set ts=4 sw=4 expandtab nocin nosi ai
-    autocmd FileType python set makeprg=pyflakes\ %
-    autocmd FileType python set efm=%f:%l:%m
-    autocmd BufNewFile,BufRead *.cpy setfiletype python
-    let pymode_lint_write=0
+    augroup filetype_python
+       autocmd!
+		 autocmd FileType python set ts=4 sw=4 expandtab nocin nosi ai
+		 autocmd FileType python set makeprg=pyflakes\ %
+		 autocmd FileType python set efm=%f:%l:%m
+		 autocmd BufNewFile,BufRead *.cpy setfiletype python
+		 let pymode_lint_write=0
+    augroup END
 
     " C mode
     autocmd FileType c set fo=croq ts=8 sw=8 cin si ai
     autocmd FileType c syn region cSpecial start="_DBG" end=");"
 
-    "macros
-    "autocmd FileType tcl        source  $VIMRC_DIR."/macros/tclmakros.vim"
-    "autocmd FileType c          source  $VIMRC_DIR."/macros/cmakros.vim"
-    "autocmd FileType cpp        source  $VIMRC_DIR."/macros/cppmakros.vim"
-    "autocmd FileType dosbatch   source  $VIMRC_DIR."/macros/batmakros.vim"
-    "autocmd FileType perl       source $VIMRC_DIR."/macros/perlmakros.vim"
-    "autocmd FileType python     source $VIMRC_DIR."/macros/pythonmakros.vim"
     "augroup filetype_fortran
         "autocmd!
         "autocmd BufRead,BufNewFile *.f,*.for,*.FOR,*.cmm,*.CMM	set tw=80 cin noic
         "autocmd BufRead,BufNewFile *.f,*.for,*.FOR,*.cmm,*.CMM	iabbrev  kfh mein Fortran Test
         "autocmd BufRead,BufNewFile *.f,*.for,*.FOR,*.cmm,*.CMM	source "/home/mistangl/.vim/macros/fortranmakros.vim"
     "augroup END
-    "autocmd FileType fortran    source $VIMRC_DIR."/macros/fortranmakros.vim"
-    "autocmd FileType sh,bash    source $VIMRC_DIR."/macros/shellmakros.vim"
-    "autocmd FileType matlab     source $VIMRC_DIR."/macros/matlabmakros.vim"
-    "autocmd FileType latex      source  $VIMRC_DIR."/macros/texmakros.vim"
-    "autocmd FileType txt                source $VIMRC_DIR."/macros/textmakros.vim"
-    "autocmd BufNewFile,BufRead *.dbg    source $VIMRC_DIR."/macros/debugfold.vim"
 
     "spezielles syntax highlighting 
      "autocmd FileType tjp       source  $VIMRC_DIR./syntax/tjp.vim"
