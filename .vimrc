@@ -3,8 +3,7 @@
 " }
 
 let s:MSWIN = has("win16") || has("win32")   || has("win64")    || has("win95")
-"let $VIMRC_DIR=$HOME."/.vim"
-let $VIMRC_DIR="c:\dotfiles"
+let $VIMRC_DIR="~/dotfiles"
 
 set nocompatible              " be iMproved, required
 filetype off                  " required

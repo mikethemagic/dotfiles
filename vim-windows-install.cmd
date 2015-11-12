@@ -14,20 +14,19 @@ IF NOT EXIST "%BASE_DIR%" (
 )
 
 echo setting up symlinks
-call mklink "%HOME%\.vimrc" "%BASE_DIR%\.vimrc"
 call mklink "%HOME%\_vimrc" "%BASE_DIR%\.vimrc"
-call mklink /J "%HOME%\.vim" "%BASE_DIR%\.vim"
+REM call mklink /J "%HOME%\vim" "%BASE_DIR%\vim"
 call mklink "%HOME%\.gitconfig" "%BASE_DIR%\.gitconfig"
 call mklink "%HOME%\.gitignore" "%BASE_DIR%\.gitignore"
 
 echo installing vundle
-IF NOT EXIST "%BASE_DIR%\.vim\bundle" (
-	call mkdir "%BASE_DIR%\.vim\bundle"
+IF NOT EXIST "%BASE_DIR%\bundle" (
+	call mkdir "%BASE_DIR%\bundle"
 )
 
-IF NOT EXIST "%HOME%/.vim/bundle/vundle" (
-	call git clone https://github.com/gmarik/vundle.giconfigt "%HOME%/.vim/bundle/vundle"
+IF NOT EXIST "%BASE_DIR%/bundle/vundle" (
+	call git clone https://github.com/gmarik/vundle.vim.git "%BASE_DIR%/bundle/vundle"
 )
 
 echo updating plugins using Vundle
-call vim -u "%BASE_DIR%/.vimrc" +BundleInstall! +BundleClean +qall
+call gvim -u "%BASE_DIR%\.vimrc" +BundleInstall! +BundleClean +qall
