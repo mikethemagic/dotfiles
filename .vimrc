@@ -3,14 +3,16 @@
 " }
 
 let s:MSWIN = has("win16") || has("win32")   || has("win64")    || has("win95")
-let $VIMRC_DIR=$HOME."/.vim"
+"let $VIMRC_DIR=$HOME."/.vim"
+let $VIMRC_DIR="c:\dotfiles"
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " vundle {
         " set the runtime path to include Vundle and initialize
-        set rtp+=~/.vim/bundle/vundle/
+        "set rtp+=~/.vim/bundle/vundle/
+        set rtp+=~/dotfiles/bundle/vundle/
         call vundle#rc()
         " alternatively, pass a path where Vundle should install plugins
         "let path = '~/some/path/here'
