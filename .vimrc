@@ -50,6 +50,10 @@ filetype off                  " required
         " Auskommentieren in jedem File richtig
         Plugin 'scrooloose/nerdcommenter'
 
+        " ack integration
+	Plugin 'mileszs/ack.vim'
+        " finde das richtige encoding
+	Plugin 'https://github.com/s3rvac/AutoFenc'
         " schöne Farben
         Plugin 'altercation/vim-colors-solarized'
         color solarized
@@ -155,9 +159,10 @@ set nospell
 " LoadGui Fonts {
 if has('gui_running')
     if has("gui_gtk2")
-        set guifont=Andale\ Mono\ Regular\ 11,Menlo\ Regular\ 10,Consolas\ Regular\ 11,Courier\ New\ Regular\ 13
+        set guifont=Lucida\ Sans\ Typewriter\ 11,Menlo\ Regular\ 10,Consolas\ Regular\ 11,Courier\ New\ Regular\ 13
+
     else
-        set guifont=Andale\ Mono\ Regular:h14,Menlo\ Regular:h13,Consolas\ Regular:h14,Courier\ New\ Regular:h16
+        set guifont=Lucida\ Sans\ Typewriter:h11,Menlo\ Regular:h13,Consolas\ Regular:h14,Courier\ New\ Regular:h16
     endif
     if has('gui_macvim')
         set transparency=2          " Make the window slightly transparent
@@ -239,4 +244,5 @@ set autoread                    " automatically reads, helpful when VCS may have
 
 set hlsearch
 set incsearch
+syntax on
 

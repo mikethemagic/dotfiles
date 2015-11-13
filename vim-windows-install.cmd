@@ -20,11 +20,11 @@ call mklink "%HOME%\.gitconfig" "%BASE_DIR%\.gitconfig"
 call mklink "%HOME%\.gitignore" "%BASE_DIR%\.gitignore"
 
 echo installing vundle
-IF NOT EXIST "%BASE_DIR%\bundle" (
+IF NOT EXIST "%HOME%\.vim\bundle" (
 	call mkdir "%BASE_DIR%\bundle"
 )
 
-IF NOT EXIST "%BASE_DIR%/bundle/vundle" (
+IF NOT EXIST "%HOME%\.vim\bundle\vundle" (
 	call git clone https://github.com/gmarik/vundle.vim.git "%BASE_DIR%/bundle/vundle"
 )
 
