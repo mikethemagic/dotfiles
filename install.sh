@@ -1,4 +1,5 @@
 #!/bin/bash
+set -xv
 MYDIR="`dirname $(cd "${0%/*}" 2>/dev/null; echo "$PWD"/"${0##*/}")`"
 
 lnif() {
@@ -13,11 +14,11 @@ lnif() {
 # Backup existing .vim stuff
 echo "backing up current vim config"
 today=`date +%Y%m%d`
-for i in $HOME/.vim $HOME/.vimrc $HOME/.gvimrc; do [ -e $i ] && [ ! -L $i ] && mv $i $i.$today; done
+for i in $HOME/.vimrc $HOME/.gvimrc; do [ -e $i ] && [ ! -L $i ] && mv $i $i.$today; done
 
 # linking .vim configs
 echo "setting up symlinks"
-FILES=".gitignore .gitconfig .vim .vimrc "
+FILES=".gitignore .gitconfig .vimrc "
 for i in $FILES; do
     echo $i
     lnif $MYDIR/$i $HOME/$i
@@ -31,12 +32,12 @@ for i in $FILES; do
 done
 
 # installing vundle
-if [ ! -d $MYDIR/vim/bundle ]; then
-   mkdir -p $MYDIR/vim/bundle
+if [ ! -d $HOME/.vim/bundle ]; then
+   mkdir -p $HOME/.vim/bundle
 fi
-if [ ! -e $MYDIR/.vim/bundle/vundle ]; then
+if [ ! -e $HOME/.vim/bundle/Vundle.vim ]; then
    echo "Installing Vundle"
-   git clone http://github.com/gmarik/vundle.git $MYDIR/vim/bundle/vundle
+   git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
 fi
 
 

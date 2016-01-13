@@ -11,15 +11,15 @@ filetype off                  " required
 " vundle {
         " set the runtime path to include Vundle and initialize
         "set rtp+=~/.vim/bundle/vundle/
-        set rtp+=~/dotfiles/bundle/vundle/
-        call vundle#rc()
+        set rtp+=~/.vim/bundle/Vundle.vim
+        call vundle#begin()
         " alternatively, pass a path where Vundle should install plugins
         "let path = '~/some/path/here'
         "call vundle#rc(path)
 " }
 " pluginlist {
-        " let Vundle manage Vundle, required
-        Plugin 'gmarik/vundle'
+	" let Vundle manage Vundle, required
+	Plugin 'VundleVim/Vundle.vim'
 
         " The following are examples of different formats supported.
         " Keep Plugin commands between here and filetype plugin indent on.
@@ -58,18 +58,20 @@ filetype off                  " required
 	Plugin 'https://github.com/s3rvac/AutoFenc'
         " schöne Farben
         Plugin 'altercation/vim-colors-solarized'
-        color solarized
+        syntax enable
+        colorscheme solarized
+        
         " finde die schliessende Klammer oder was auch immer
-        Plugin 'https://github.com/vim-scripts/matchit.zip'
+        Plugin 'vim-scripts/matchit.zip'
         " schöne bunte Infozeile unten im vim
-        Plugin 'https://github.com/Lokaltog/vim-powerline'
+        Plugin 'Lokaltog/vim-powerline'
         let g:Powerline_symbols = 'fancy'
         " schnelle Bewegungen in Sätzen
         Plugin 'Lokaltog/vim-easymotion'
         " Syntax highlighting für Taskjuggler
         Bundle 'maxmeyer/vim-taskjuggler'
         " json check
-        Plugin 'https://github.com/elzr/vim-json'
+        Plugin 'elzr/vim-json'
         " Code-Schnipsel
         Bundle 'honza/vim-snippets'
         Bundle 'xolox/vim-misc'
@@ -80,7 +82,7 @@ filetype off                  " required
                 let g:numbers_exclude = ['tagbar', 'gundo', 'minibufexpl', 'nerdtree']
         " }
         " Control P ergänzt Wortenden gleich richtig
-        Plugin 'https://github.com/kien/ctrlp.vim'
+        Plugin 'kien/ctrlp.vim'
         " ctrlp {
                 let g:ctrlp_working_path_mode = 'ar'
                 let g:ctrlp_map = '<c-p>'
