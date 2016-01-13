@@ -49,6 +49,8 @@ filetype off                  " required
         " }
         " Auskommentieren in jedem File richtig
         Plugin 'scrooloose/nerdcommenter'
+        " compilieren in jedem File richtig
+        Plugin 'vim-scripts/SingleCompile'
 
         " ack integration
 	Plugin 'mileszs/ack.vim'
@@ -97,7 +99,8 @@ filetype off                  " required
                     set wildignore+=*/tmp/*,*.so,*.swp,*.zip
                 endif
         " }
-
+        "Plugin 'Chiel92/vim-autoformat'
+        Plugin 'clang-complete'
         " Python plugins {
             " Pick either python-mode or pyflakes & pydoc
             " Bundle 'klen/python-mode'
