@@ -11,8 +11,10 @@ filetype off                  " required
 " vundle {
         " set the runtime path to include Vundle and initialize
         "set rtp+=~/.vim/bundle/vundle/
-        set rtp+=~/.vim/bundle/Vundle.vim
-        call vundle#begin()
+        "set rtp+=~/.vim/bundle/Vundle.vim
+        "call vundle#begin()
+	set rtp+=~/dotfiles/bundle/vundle/
+        call vundle#rc()
         " alternatively, pass a path where Vundle should install plugins
         "let path = '~/some/path/here'
         "call vundle#rc(path)
@@ -102,7 +104,8 @@ filetype off                  " required
                 endif
         " }
         "Plugin 'Chiel92/vim-autoformat'
-        Plugin 'clang-complete'
+        "Plugin 'clang-complete'
+        Plugin 'justmao945/vim-clang'
         " Python plugins {
             " Pick either python-mode or pyflakes & pydoc
             " Bundle 'klen/python-mode'
