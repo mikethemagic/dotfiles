@@ -30,9 +30,9 @@ filetype off                  " required
         " The sparkup vim script is in a subdirectory of this repo called vim.
         " Pass the path to set the runtimepath properly.
         Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-        " öffnet Files einfach
+        " Ã¶ffnet Files einfach
         Plugin 'wincent/Command-T'
-        " Explorer für vim
+        " Explorer fÃ¼r vim
         Plugin 'scrooloose/nerdtree'
         " NERDTree {
             let g:nerdtree_tabs_open_on_gui_startup=0
@@ -55,35 +55,38 @@ filetype off                  " required
         Plugin 'vim-scripts/SingleCompile'
 
         " ack integration
-	Plugin 'mileszs/ack.vim'
+        Plugin 'mileszs/ack.vim'
         " finde das richtige encoding
-	Plugin 'https://github.com/s3rvac/AutoFenc'
-        " schöne Farben
+        Plugin 's3rvac/AutoFenc'
+        " schÃ¶ne Farben
         Plugin 'altercation/vim-colors-solarized'
         syntax enable
         colorscheme solarized
         
         " finde die schliessende Klammer oder was auch immer
         Plugin 'vim-scripts/matchit.zip'
-        " schöne bunte Infozeile unten im vim
+        " schÃ¶ne bunte Infozeile unten im vim
         Plugin 'Lokaltog/vim-powerline'
         let g:Powerline_symbols = 'fancy'
-        " schnelle Bewegungen in Sätzen
+        " schnelle Bewegungen in SÃ¤tzen
         Plugin 'Lokaltog/vim-easymotion'
-        " Syntax highlighting für Taskjuggler
+        " Syntax highlighting fÃ¼r Taskjuggler
         Bundle 'maxmeyer/vim-taskjuggler'
         " json check
         Plugin 'elzr/vim-json'
         " Code-Schnipsel
+        Plugin 'MarcWeber/vim-addon-mw-utils'
+        Plugin 'tomtom/tlib_vim'
+        Plugin 'garbas/vim-snipmate'
         Bundle 'honza/vim-snippets'
         Bundle 'xolox/vim-misc'
-        Bundle 'xolox/vim-easytags'
+        "Bundle 'xolox/vim-easytags'
         " relative Nummern zur Zeile in der der Cursor ist
         Plugin 'myusuf3/numbers.vim'
         " numbers {
                 let g:numbers_exclude = ['tagbar', 'gundo', 'minibufexpl', 'nerdtree']
         " }
-        " Control P ergänzt Wortenden gleich richtig
+        " Control P ergÃ¤nzt Wortenden gleich richtig
         Plugin 'kien/ctrlp.vim'
         " ctrlp {
                 let g:ctrlp_working_path_mode = 'ar'
@@ -104,8 +107,23 @@ filetype off                  " required
                 endif
         " }
         "Plugin 'Chiel92/vim-autoformat'
+        " ergÃ¤nzt c/cpp AusdrÃ¼cke
         "Plugin 'clang-complete'
         Plugin 'justmao945/vim-clang'
+	let g:clang_c_options = '-std=gnu11'
+	let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
+        "Plugin 'Shougo/vimproc'
+        "Plugin 'rhysd/vim-clang-format'
+        "Valloric/YouCompleteMe
+	"
+        Plugin 'xolox/vim-lua-ftplugin'
+	
+	" ag the faster Ack
+        Plugin 'rking/ag.vim'
+	
+        " formatiert c/cpp-BlÃ¶cke im vim
+	map <C-I> :pyf c:\Program\ Files\LLVM\share\clang\clang-format.py<CR>
+        "imap <C-I> <c-o>:pyf c:\Program\ Files\LLVM\share\clang\clang-format.py<CR>
         " Python plugins {
             " Pick either python-mode or pyflakes & pydoc
             " Bundle 'klen/python-mode'
@@ -132,11 +150,11 @@ if !exists("autocommands_loaded")
     " python
     augroup filetype_python
        autocmd!
-		 autocmd FileType python set ts=4 sw=4 expandtab nocin nosi ai
-		 autocmd FileType python set makeprg=pyflakes\ %
-		 autocmd FileType python set efm=%f:%l:%m
-		 autocmd BufNewFile,BufRead *.cpy setfiletype python
-		 let pymode_lint_write=0
+       autocmd FileType python set ts=4 sw=4 expandtab nocin nosi ai
+       autocmd FileType python set makeprg=pyflakes\ %
+       autocmd FileType python set efm=%f:%l:%m
+       autocmd BufNewFile,BufRead *.cpy setfiletype python
+       let pymode_lint_write=0
     augroup END
 
     " C mode
@@ -234,16 +252,16 @@ set autoread                    " automatically reads, helpful when VCS may have
 " }
 " useful abbreviations {
     iabbrev @@    michael.stangl@googlemail.com
-    iabbrev ccopy Copyright 2015 Michael Stangl, all rights reserved.
+    iabbrev ccopy Copyright 2016 Michael Stangl, all rights reserved.
 " }
 " useful editing mappings {
 "   ein Wort in "" setzen
     nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
     nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
-"   Mappings für Movements: 
-"   Alle funktionsparameter löschen
+"   Mappings fÃ¼r Movements: 
+"   Alle funktionsparameter lÃ¶schen
     onoremap p i(
-"   body der Funktion löschen
+"   body der Funktion lÃ¶schen
 "   onoremap b /return<cr>
 "
 "   grep nach dem Wort unter dem Cursor
@@ -252,5 +270,7 @@ set autoread                    " automatically reads, helpful when VCS may have
 
 set hlsearch
 set incsearch
+set tags=./tags,tags,../tags
 syntax on
 
+"vim : set expandtab:
