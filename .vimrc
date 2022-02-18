@@ -13,8 +13,8 @@ filetype off                  " required
         "set rtp+=~/.vim/bundle/vundle/
         "set rtp+=~/.vim/bundle/Vundle.vim
         "call vundle#begin()
-	set rtp+=~/dotfiles/bundle/vundle/
-        call vundle#rc()
+	set rtp+=~/.vim/bundle/Vundle.vim
+        call vundle#begin()
         " alternatively, pass a path where Vundle should install plugins
         "let path = '~/some/path/here'
         "call vundle#rc(path)
@@ -61,6 +61,7 @@ filetype off                  " required
         " schÃ¶ne Farben
         Plugin 'altercation/vim-colors-solarized'
         syntax enable
+    	set background=dark
         colorscheme solarized
         
         " finde die schliessende Klammer oder was auch immer
@@ -77,6 +78,7 @@ filetype off                  " required
         " Code-Schnipsel
         Plugin 'MarcWeber/vim-addon-mw-utils'
         Plugin 'tomtom/tlib_vim'
+	let g:snipMate = { 'snippet_version' : 1 }
         Plugin 'garbas/vim-snipmate'
         Bundle 'honza/vim-snippets'
         Bundle 'xolox/vim-misc'
@@ -131,6 +133,7 @@ filetype off                  " required
             Bundle 'python_match.vim'
             Bundle 'pythoncomplete'
         " }
+        call vundle#end()
 " }
 
 filetype plugin indent on     " required
@@ -258,7 +261,7 @@ set autoread                    " automatically reads, helpful when VCS may have
 "   ein Wort in "" setzen
     nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
     nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
-"   Mappings fÃ¼r Movements: 
+"   Mappings für Movements: 
 "   Alle funktionsparameter lÃ¶schen
     onoremap p i(
 "   body der Funktion lÃ¶schen
