@@ -2,38 +2,34 @@
 " vim: set foldmarker={,} foldlevel=0 foldmethod=marker spell:
 " }
 
-let s:MSWIN = has("win16") || has("win32")   || has("win64")    || has("win95")
-let $VIMRC_DIR="~/dotfiles"
+" Plug Installation {
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '$HOME/vimfiles'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-set nocompatible              " be iMproved, required
-filetype off                  " required
+" Install vim-plug if not found
+if empty(glob('$HOME/vimfiles/autoload/plug.vim'))
+  silent !curl -fLo $HOME/vimfiles/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
 
-" vundle {
-        " set the runtime path to include Vundle and initialize
-        "set rtp+=~/.vim/bundle/vundle/
-        "set rtp+=~/.vim/bundle/Vundle.vim
-        "call vundle#begin()
-	set rtp+=~/.vim/bundle/Vundle.vim
-        call vundle#begin()
-        " alternatively, pass a path where Vundle should install plugins
-        "let path = '~/some/path/here'
-        "call vundle#rc(path)
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)')) | PlugInstall --sync | source $MYVIMRC | endif
 " }
+
 " pluginlist {
-	" let Vundle manage Vundle, required
-	Plugin 'VundleVim/Vundle.vim'
+call plug#begin('$HOME/vimfiles/plugged')
 
         " The following are examples of different formats supported.
-        " Keep Plugin commands between here and filetype plugin indent on.
+        " Keep Plug commands between here and filetype plugin indent on.
         " scripts on GitHub repos
-        Plugin 'tpope/vim-fugitive'
+        Plug 'tpope/vim-fugitive' 
         " The sparkup vim script is in a subdirectory of this repo called vim.
         " Pass the path to set the runtimepath properly.
-        Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-        " Ã¶ffnet Files einfach
-        Plugin 'wincent/Command-T'
-        " Explorer fÃ¼r vim
-        Plugin 'scrooloose/nerdtree'
+        Plug 'rstacruz/sparkup', {'rtp': 'vim/'}   
+        " öffnet Files einfach
+        Plug 'wincent/Command-T'  
         " NERDTree {
             let g:nerdtree_tabs_open_on_gui_startup=0
             let g:nerdtree_tabs_open_on_new_tab=1
@@ -50,46 +46,40 @@ filetype off                  " required
             let NERDTreeKeepTreeInNewTab=1
         " }
         " Auskommentieren in jedem File richtig
-        Plugin 'scrooloose/nerdcommenter'
+        Plug 'scrooloose/nerdcommenter' 
         " compilieren in jedem File richtig
-        Plugin 'vim-scripts/SingleCompile'
+        Plug 'vim-scripts/SingleCompile' 
 
         " ack integration
-        Plugin 'mileszs/ack.vim'
+        Plug 'mileszs/ack.vim' 
         " finde das richtige encoding
-        Plugin 's3rvac/AutoFenc'
-        " schÃ¶ne Farben
-        Plugin 'altercation/vim-colors-solarized'
+        Plug 's3rvac/AutoFenc'  
+        " schöne Farben
+        Plug 'altercation/vim-colors-solarized'  
         syntax enable
-    	set background=dark
-        colorscheme solarized
-        
+    	"set background=dark
+
         " finde die schliessende Klammer oder was auch immer
-        Plugin 'vim-scripts/matchit.zip'
-        " schÃ¶ne bunte Infozeile unten im vim
-        Plugin 'Lokaltog/vim-powerline'
+        Plug 'vim-scripts/matchit.zip' 
+        " schöne bunte Infozeile unten im vim
+        Plug 'Lokaltog/vim-powerline' 
         let g:Powerline_symbols = 'fancy'
-        " schnelle Bewegungen in SÃ¤tzen
-        Plugin 'Lokaltog/vim-easymotion'
-        " Syntax highlighting fÃ¼r Taskjuggler
-        Bundle 'maxmeyer/vim-taskjuggler'
+        " schnelle Bewegungen in Sätzen
+        Plug 'Lokaltog/vim-easymotion' 
+        " Syntax highlighting für Taskjuggler
+        Plug 'maxmeyer/vim-taskjuggler' 
         " json check
-        Plugin 'elzr/vim-json'
+        Plug 'elzr/vim-json' 
         " Code-Schnipsel
-        Plugin 'MarcWeber/vim-addon-mw-utils'
-        Plugin 'tomtom/tlib_vim'
-	let g:snipMate = { 'snippet_version' : 1 }
-        Plugin 'garbas/vim-snipmate'
-        Bundle 'honza/vim-snippets'
-        Bundle 'xolox/vim-misc'
-        "Bundle 'xolox/vim-easytags'
-        " relative Nummern zur Zeile in der der Cursor ist
-        Plugin 'myusuf3/numbers.vim'
-        " numbers {
-                let g:numbers_exclude = ['tagbar', 'gundo', 'minibufexpl', 'nerdtree']
-        " }
-        " Control P ergÃ¤nzt Wortenden gleich richtig
-        Plugin 'kien/ctrlp.vim'
+        Plug 'MarcWeber/vim-addon-mw-utils' 
+        Plug 'tomtom/tlib_vim'
+        "let g:snipMate = { 'snippet_version' : 1 }
+        "Plug 'garbas/vim-snipmate' 
+        "Plug 'honza/vim-snippets' 
+        Plug 'xolox/vim-misc' 
+        "Plug 'xolox/vim-easytags'
+        " Control P ergänzt Wortenden gleich richtig
+        Plug 'kien/ctrlp.vim' 
         " ctrlp {
                 let g:ctrlp_working_path_mode = 'ar'
                 let g:ctrlp_map = '<c-p>'
@@ -108,33 +98,42 @@ filetype off                  " required
                     set wildignore+=*/tmp/*,*.so,*.swp,*.zip
                 endif
         " }
-        "Plugin 'Chiel92/vim-autoformat'
-        " ergÃ¤nzt c/cpp AusdrÃ¼cke
-        "Plugin 'clang-complete'
-        Plugin 'justmao945/vim-clang'
-	let g:clang_c_options = '-std=gnu11'
-	let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
-        "Plugin 'Shougo/vimproc'
-        "Plugin 'rhysd/vim-clang-format'
+        "Plug 'Chiel92/vim-autoformat'
+        "Plug 'clang-complete'
+        Plug 'justmao945/vim-clang' 
+        let g:clang_c_options = '-std=gnu11'
+        let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
+        "Plug 'Shougo/vimproc'
+        "Plug 'rhysd/vim-clang-format'
         "Valloric/YouCompleteMe
-	"
-        Plugin 'xolox/vim-lua-ftplugin'
-	
-	" ag the faster Ack
-        Plugin 'rking/ag.vim'
-	
-        " formatiert c/cpp-BlÃ¶cke im vim
-	map <C-I> :pyf c:\Program\ Files\LLVM\share\clang\clang-format.py<CR>
+        "
+        Plug 'xolox/vim-lua-ftplugin' 
+  
+      " ag the faster Ack
+        Plug 'rking/ag.vim'
+        Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+        Plug 'junegunn/fzf.vim'
+  
+        " formatiert c/cpp-Blöcke im vim
+        "map <C-I> :pyf c:\Program\ Files\LLVM\share\clang\clang-format.py<CR>
         "imap <C-I> <c-o>:pyf c:\Program\ Files\LLVM\share\clang\clang-format.py<CR>
         " Python plugins {
             " Pick either python-mode or pyflakes & pydoc
-            " Bundle 'klen/python-mode'
-            Bundle 'python.vim'
-            Bundle 'python_match.vim'
-            Bundle 'pythoncomplete'
+            "Plug 'klen/python-mode'
+            "Plug 'python.vim'
+            "Plug 'python_match.vim'
+            "Plug 'pythoncomplete'
         " }
-        call vundle#end()
+call plug#end()
 " }
+colorscheme solarized
+
+" Quicker window movement
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+
 
 filetype plugin indent on     " required
 filetype plugin on            
@@ -168,7 +167,7 @@ if !exists("autocommands_loaded")
         "autocmd!
         "autocmd BufRead,BufNewFile *.f,*.for,*.FOR,*.cmm,*.CMM	set tw=80 cin noic
         "autocmd BufRead,BufNewFile *.f,*.for,*.FOR,*.cmm,*.CMM	iabbrev  kfh mein Fortran Test
-        "autocmd BufRead,BufNewFile *.f,*.for,*.FOR,*.cmm,*.CMM	source "/home/mistangl/.vim/macros/fortranmakros.vim"
+        "autocmd BufRead,BufNewFile *.f,*.for,*.FOR,*.cmm,*.CMM	source "$HOM/.vim/macros/fortranmakros.vim"
     "augroup END
 
     "spezielles syntax highlighting 
@@ -180,7 +179,6 @@ if !exists("autocommands_loaded")
 
 endif
 " }
-"
 "
 let mapleader = ","
 set nospell
@@ -217,22 +215,40 @@ endif
 set autoread                    " automatically reads, helpful when VCS may have changed the file
 
 
+
+" Next item on list
+map <leader>n :cn<cr>
+" Previous item on list
+map <leader>p :cp<cr>
+
+
+
 " FX-keys {
     nmap <F2> :w
+
     nmap <S-F2> :make
+
     nmap <C-F2> :make %<
 
+
     nmap <F4> :bdel
+
     nmap <S-F4> :close
+
     nmap <F5> :bp
+
     nmap <F6> :bn
+
     nmap <S-F5> :cp
+
     nmap <S-F6> :cn
+
 
     " tags
     nmap <F8> 
     nmap <C-F8> 
     nmap <S-F8> :tn
+
     nmap <F7> 
 
     " Split-Window Movement: <apple><cursorkeys>
@@ -262,18 +278,34 @@ set autoread                    " automatically reads, helpful when VCS may have
     nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
     nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
 "   Mappings für Movements: 
-"   Alle funktionsparameter lÃ¶schen
+"   Alle funktionsparameter löschen
     onoremap p i(
-"   body der Funktion lÃ¶schen
+"   body der Funktion löschen
 "   onoremap b /return<cr>
 "
 "   grep nach dem Wort unter dem Cursor
     nnoremap <leader>g :grep -R '<cWORD>' .<cr>
 " }
+"
+" set grep program to ripgrep {
+if executable('rg')
+  "set grepprg=rg\ -H\ --no-heading\ --vimgrep
+  set grepprg=rg\ -H\ \ --vimgrep\ --hidden
+  set grepformat=%f:%l:%c:%m
+endif
+" }
+"" Ctrl-P (so eingerichtet, dass RipGrep - rg verwendet wird)
+if executable('rg')
+  " rg in CtrlP zum Auflisten von Dateien verwenden. Blitzschnell und beachtet .gitignore
+  let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
 
+  " rg ist schnell genug, dass CtrlP keinen Cache benötigt
+  let g:ctrlp_use_caching = 0
+endif
+
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_clear_cache_on_exit = 1
 set hlsearch
 set incsearch
 set tags=./tags,tags,../tags
 syntax on
-
-"vim : set expandtab:
